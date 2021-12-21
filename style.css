@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: turquoise;
+}
+
+.head{
+    background-color: white;
+    width: 100%;
+}
+
+.foot{
+    background-color: white;
+    width: 100%;
+}
+
+.ms_select{
+    padding: 2px;
+}
+
+.ms_container{
+    width: 500px;
+    height: 500px;
+    margin-top: 150px;
+}
+
+.box{
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.box1{
+    width: calc(500px / 10);
+    height: calc(500px / 10);
+}
+
+.box2{
+    width: calc(500px/ 9);
+    height: calc(500px / 9);
+}
+
+.box3{
+    width: calc(500px / 7);
+    height: calc(500px / 7);
+}
+
+.safe{
+    background-color: blue;
+}
