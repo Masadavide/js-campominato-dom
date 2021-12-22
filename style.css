@@ -32,17 +32,17 @@ body{
     cursor: pointer;
 }
 
-.box1{
+#box1{
     width: calc(500px / 10);
     height: calc(500px / 10);
 }
 
-.box2{
+#box2{
     width: calc(500px/ 9);
     height: calc(500px / 9);
 }
 
-.box3{
+#box3{
     width: calc(500px / 7);
     height: calc(500px / 7);
 }
