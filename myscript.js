@@ -22,30 +22,46 @@ di volte che l’utente ha cliccato su una cella che non era una b. */
 let btn = document.getElementById('btn-play');
 let grid = document.getElementById('grid');
 let bomb = [];
+let box = '';
 console.log(bomb);
 
-function generaGriglia (numeroCelle){
-    for(i = 1; i <= numeroCelle; i++){
-        grid.innerHTML += `<div class="box d-flex justify-content-center align-items-center">${i}</div>`
-    }
-}
+
+
+
+
+
 
 btn.addEventListener("click", function(){
-    let box = document.getElementsByClassName('box');
-    console.log(box)
+    function generaGriglia(numeroCelle){
+        for(i = 1; i <= numeroCelle; i++){
+            grid.innerHTML += `<div class="box d-flex justify-content-center align-items-center">${i}</div>`
+        }
+        box =document.getElementsByClassName('box');
+    }
+    
     let level =  document.getElementById('level').value;
     grid.innerHTML = "";
 
     if(level == 1){
         generaGriglia(100);
+            
+        let allBox = document.querySelectorAll('.box');
+        for(i=0; i<100; i++){
+            allBox[i].classList.add('box1');
+        }
         
-        box.setAttribute('box1');
     }else if(level == 2){
         generaGriglia(81);
-        box.classList.add('box2');
+        let allBox = document.querySelectorAll('.box');
+        for(i=0; i<81; i++){
+            allBox[i].classList.add('box2');
+        }
     }else{
         generaGriglia(49);
-        box.classList.add('box3');
+        let allBox = document.querySelectorAll('.box');
+        for(i=0; i<49; i++){
+            allBox[i].classList.add('box3');
+        }
     }
     
     generaBomba(16);
@@ -73,5 +89,5 @@ function generaBomba(num){
         if(!bomb.includes(num)){
             bomb.push(num)
         }
-    }
+    } 
 }
