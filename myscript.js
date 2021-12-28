@@ -23,7 +23,6 @@ let btn = document.getElementById('btn-play');
 let grid = document.getElementById('grid');
 let bomb = [];
 let box = '';
-console.log(bomb);
 
 
 
@@ -32,13 +31,27 @@ console.log(bomb);
 
 
 btn.addEventListener("click", function(){
+    bomb = [];
+    
     function generaGriglia(numeroCelle){
         for(i = 1; i <= numeroCelle; i++){
             grid.innerHTML += `<div class="box d-flex justify-content-center align-items-center">${i}</div>`
         }
         box =document.getElementsByClassName('box');
+
+        function generaBomba(num){
+            console.log(bomb.length)
+            while (bomb.length < num) {
+                let numBomb = Math.floor(Math.random()* box.length + 1);
+                if(!bomb.includes(numBomb)){
+                    bomb.push(numBomb)
+                }
+            }
+        }
+        generaBomba(16);
+        console.log(bomb);
     }
-    
+
     let level =  document.getElementById('level').value;
     grid.innerHTML = "";
 
@@ -49,7 +62,6 @@ btn.addEventListener("click", function(){
         for(i=0; i<100; i++){
             allBox[i].classList.add('box1');
         }
-        
     }else if(level == 2){
         generaGriglia(81);
         let allBox = document.querySelectorAll('.box');
@@ -64,30 +76,34 @@ btn.addEventListener("click", function(){
         }
     }
     
-    generaBomba(16);
-    
+    console.log(box.length);
+
+
+
     for (i = 0; i < box.length; i++) {
         box[i].addEventListener("click",function(){
             const numeroCella = parseInt(this.innerHTML);
-            this.classList.add("safe")
-            console.log(this.innerHTML);
             if(bomb.includes(numeroCella)) {
-                console.log("hai trovato una bomba")
+                fineGioco();
+            }else{
+                this.classList.add("safe");
             }
         })
     }
-    
+
 })
 
 
+function fineGioco(){
+    for(i = 0; i < box.length; i++){
 
-
-
-function generaBomba(num){
-    while(bomb.lenght < num) {
-        let num = Math.floor((Math.random())* 100) + 1;
-        if(!bomb.includes(num)){
-            bomb.push(num)
+        if(bomb.includes(parseInt(box[i].innerHTML))){
+            box[i].classList.add("tnt")
         }
-    } 
+
+    }
+    let fine = document.getElementById('fine_gioco');
+    fine.classList.remove('fine');
+    fine.classList.add('block');
 }
+

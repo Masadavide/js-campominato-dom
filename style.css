@@ -50,3 +50,15 @@ body{
 .safe{
     background-color: blue;
 }
+
+.tnt{
+    background-color: red;
+}
+
+.fine{
+    display: none;
+}
+
+.block{
+    display: block;
+}
